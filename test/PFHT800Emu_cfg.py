@@ -11,12 +11,12 @@ process.source = cms.Source("PoolSource",
     )
 )
 
-process.hltPFHT800 = cms.EDFilter("MiniAODTrigEmu",
+process.hltPFHT800emu = cms.EDFilter("MiniAODTrigEmu",
     bits = cms.InputTag("TriggerResults","","HLT"),
     objects = cms.InputTag("selectedPatTrigger"),
-    origpath = cms.string("HLT_PFHTForMC_v1"),
-    newthresh = cms.double(800.),
+    origpath = cms.string("HLT_PFHTForMC_v1"),# original path to use as a base
+    newthresh = cms.double(800.),# new threshold to use
     triggertype = cms.int32(89),# look at https://github.com/cms-sw/cmssw/blob/CMSSW_7_4_X/DataFormats/HLTReco/interface/TriggerTypeDefs.h
 )
 
-process.HLT_PFHT800_v1 = cms.Path(process.hltPFHT800)
+process.HLT_PFHT800_v1 = cms.Path(process.hltPFHT800emu)

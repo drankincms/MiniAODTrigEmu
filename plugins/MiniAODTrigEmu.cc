@@ -77,9 +77,9 @@ class MiniAODTrigEmu : public edm::EDFilter {
 MiniAODTrigEmu::MiniAODTrigEmu(const edm::ParameterSet& iConfig):
     triggerBits_(consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("bits"))),
     triggerObjects_(consumes<pat::TriggerObjectStandAloneCollection>(iConfig.getParameter<edm::InputTag>("objects"))),
-    origPath_(iConfig.getParameter<std::string>("origpath")),
-    newThresh_(iConfig.getParameter<double>("newthresh")),
-    triggerType_(iConfig.getParameter<int>("triggertype"))
+    origPath_(iConfig.getParameter<std::string>("origpath")),//original path to use as a base
+    newThresh_(iConfig.getParameter<double>("newthresh")),//new threshold to use on top of original path
+    triggerType_(iConfig.getParameter<int>("triggertype"))//trigger type used
 {
    //now do what ever initialization is needed
 
